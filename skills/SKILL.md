@@ -3,8 +3,8 @@ name: brandbook-orchestrator
 description: >-
   Routes brandbook authorship, audits, and governance across philosophy,
   architecture, visual identity, color, typography, human interface, packaging,
-  and DAM. Use when building or reviewing a brand system, brandbook, identity
-  guidelines, design OS, or brand consistency audit.
+  DAM, and critical review. Use when building or reviewing a brand system,
+  brandbook, identity guidelines, design OS, or brand consistency audit.
 ---
 
 # Brandbook Orchestrator
@@ -26,6 +26,7 @@ A brandbook is the **single source of truth** for aesthetics, strategy, tone, an
 
 | If the task involves… | Load |
 |-----------------------|------|
+| Critiquing an **existing** brandbook; gaps, score, remediation | [`brandbook-review/SKILL.md`](brandbook-review/SKILL.md) |
 | Doctrine, principles, voice posture, "less but better" | [`design-philosophy/SKILL.md`](design-philosophy/SKILL.md) |
 | Product naming, branded house, lockups, equity dilution | [`brand-architecture/SKILL.md`](brand-architecture/SKILL.md) |
 | Logo, clear space, minima, co-branding, merchandise bans | [`visual-identity/SKILL.md`](visual-identity/SKILL.md) |
@@ -33,6 +34,8 @@ A brandbook is the **single source of truth** for aesthetics, strategy, tone, an
 | UI behavior, safe areas, elevation, motion, haptics | [`human-interface/SKILL.md`](human-interface/SKILL.md) |
 | Unboxing, lid friction, fiber packs, physical ritual | [`packaging-experience/SKILL.md`](packaging-experience/SKILL.md) |
 | DAM, taxonomy, permissions, tokens, design-tool sync | [`brand-governance/SKILL.md`](brand-governance/SKILL.md) |
+
+**Existing artifact to audit?** Start with `brandbook-review`, then pull specialists as rubrics for each finding.
 
 Load multiple specialists when the task spans domains. Always keep this manifesto in force.
 

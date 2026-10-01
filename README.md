@@ -6,7 +6,7 @@ A brandbook is not a style guide. It is an **operating system** for culture, des
 
 ## What This Repo Contains
 
-Eight skills that encode a complete excellence-grade brandbook:
+Nine skills that encode a complete excellence-grade brand system—including critical review of existing brandbooks:
 
 | Order | Skill | Path | Owns |
 |------:|-------|------|------|
@@ -18,13 +18,15 @@ Eight skills that encode a complete excellence-grade brandbook:
 | 5 | Human Interface | [`skills/human-interface/`](skills/human-interface/) | Clarity, deference, depth, motion, haptics |
 | 6 | Packaging Experience | [`skills/packaging-experience/`](skills/packaging-experience/) | Unboxing ritual, friction, sustainable materials |
 | 7 | Brand Governance | [`skills/brand-governance/`](skills/brand-governance/) | DAM, taxonomy, permissions, tokens, sync |
+| 8 | Brandbook Review | [`skills/brandbook-review/`](skills/brandbook-review/) | Critical audit of existing brandbooks; gaps and fixes |
 
 ## How to Use
 
 1. **Start at the orchestrator** — [`skills/SKILL.md`](skills/SKILL.md) selects specialist skills and enforces the global manifesto.
-2. **Load only what the task needs** — progressive disclosure; do not dump every skill into context.
-3. **Treat rules as constraints** — measurable, tokenizable, enforceable. Never as optional taste.
-4. **Subtract first** — every element must earn its place.
+2. **Auditing an existing brandbook?** — Load [`skills/brandbook-review/`](skills/brandbook-review/) first; pull specialists as rubrics for deep findings.
+3. **Load only what the task needs** — progressive disclosure; do not dump every skill into context.
+4. **Treat rules as constraints** — measurable, tokenizable, enforceable. Never as optional taste.
+5. **Subtract first** — every element must earn its place.
 
 ## Non-Negotiable Posture
 
@@ -46,7 +48,8 @@ BrandBooker/
     ├── color-typography/SKILL.md
     ├── human-interface/SKILL.md
     ├── packaging-experience/SKILL.md
-    └── brand-governance/SKILL.md
+    ├── brand-governance/SKILL.md
+    └── brandbook-review/SKILL.md    # Critical audit
 ```
 
 ## Conventions
