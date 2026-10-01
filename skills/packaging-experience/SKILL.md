@@ -1,70 +1,85 @@
 ---
 name: packaging-experience
 description: >-
-  Specifies premium packaging ritual, structural friction, typographic silence,
-  and sustainable materials. Use when designing unboxing experiences, rigid
-  packs, molded-fiber inserts, or physical brand touchpoints.
+  Specifies premium unboxing ritual, programmed lid friction, typographic
+  silence, rigid structure, and sustainable fiber materials. Use when designing
+  packaging, unboxing experiences, molded-fiber inserts, or physical brand
+  kits.
 ---
 
 # Packaging Experience
 
-First contact with a physical product often happens before power-on. Industrial packaging is not only logistics—it is a stage that validates the price the customer just paid.
+First contact with a physical product often happens before power-on. Packaging is not only logistics—it is a stage that validates the price just paid.
 
-If the organization ships tactile goods to customers, executives, or influencers, mathematical rigor of boxes, weights, and paper engineering becomes critical.
+## Purpose
 
-## Silent Unboxing Ceremony
+When the organization ships tactile goods (or executive/influencer kits), define mathematical rigor for boxes, weights, paper engineering, reveal sequence, and materials.
+
+## Rules
+
+### Silent unboxing ceremony
 
 Structure opening as timed anticipation—not advertising folklore.
 
-### Ritual principles
-
-1. **Product first** — After the lid lifts, the primary product rests alone, front and center
-2. **Secondary below** — Admin docs, legal guides, and redundant connectors stay on a lower tier, out of the first reveal
-3. **Typographic silence** — Only the primary name and absolutely essential linearized glyphs survive; preserve a vast white margin that signals institutional confidence
-4. **No heavy explanatory copy** on the outer experience—materiality and clarity speak
+1. **Product first** — After the lid lifts, the primary product rests alone, front and center.
+2. **Secondary below** — Admin docs, legal guides, and redundant connectors stay on a lower tier, out of the first reveal.
+3. **Typographic silence** — Only the primary name and absolutely essential linearized glyphs survive; preserve a vast empty margin as institutional confidence.
+4. **No heavy explanatory copy** on the outer experience—materiality and clarity speak.
 
 ### Programmed structural friction
 
-Lid transition should impose **controlled friction** (tight tolerance—on the order of under two millimeters relative to the base) so the lid rises slowly against gravity and internal air resistance. That calculated pause creates suspense. Require industrial packaging engineering—not amateur loose fits.
+The lid must impose **controlled friction**—tight tolerance on the order of **under 2 mm** relative to the base—so it rises slowly against gravity and internal air resistance. That pause is engineered suspense. Require industrial packaging engineering; reject amateur loose fits.
 
 ### Structural presence
 
-Use rigid support materials with imposing protective thickness to communicate solidity **before** direct contact with the device.
+Use rigid support with imposing protective thickness to communicate solidity **before** direct contact with the device.
 
-## Sustainability as Prestige
+### Sustainability as prestige
 
-Sustainable packaging elevates scrutiny-resistant prestige when it does not sacrifice solidity.
-
-### Material mandates
+Sustainable packaging elevates prestige under scrutiny when solidity is preserved.
 
 | Directive | Detail |
 |-----------|--------|
-| **Ban disposable polymers** | No superfluous plastic films; no expandable foam polymers as default |
-| **Prefer natural fiber systems** | Molded pulp, plant-starch binders, compressed recycled board |
-| **Molded-fiber nests** | Millimeter-fit cradles that lock components against transit vibration while offering clean, velvet-like natural texture |
-| **Honest materials** | Raw metals, honest textiles, and dark woods may appear where the product itself is sculptural—never as decorative pretense |
+| Ban disposable polymers | No superfluous plastic films; no expandable foam as default |
+| Prefer natural fiber systems | Molded pulp, plant-starch binders, compressed recycled board |
+| Molded-fiber nests | Millimeter-fit cradles lock components against transit vibration; clean natural texture |
+| Honest materials | Raw metals, honest textiles, dark woods may appear on the product itself as sculptural honesty—never decorative pretense |
 
 Hard constraints against disposable plastics force partners to optimize fiber structures—often yielding containers that feel luxurious through conceptual purity.
 
-## Sculptural Minimalism
+### Sculptural minimalism
 
-The product should integrate into living environments with volumetric calm—closer to refined furniture or interior jewelry than to loud promotional objects. Honesty of material and form over decorative claim.
+The product should sit in living environments with volumetric calm—closer to refined furniture than loud promotional objects. Honesty of material and form over decorative claim.
 
-## Agent Instructions
+### Scope gate
+
+If the brand is software-only with no physical goods, state that explicitly and omit ceremonial packaging—or limit this chapter to event kits / hardware accessories if those exist.
+
+## Workflow
 
 1. Specify reveal hierarchy (hero product → accessories/docs).
 2. Require engineered lid friction and rigid outer structure.
-3. Strip packaging graphics to name + essential marks; maximize empty margin.
+3. Strip graphics to name + essential marks; maximize empty margin.
 4. Ban expandable plastics and vulgar promotional pack treatments.
-5. Prefer molded fiber / recycled board systems with documented fit tolerances.
-6. Align packaging chapter with design-philosophy honesty and environmental principles.
+5. Prefer molded fiber / recycled board with documented fit tolerances.
+6. Align with design-philosophy honesty and environmental principles.
+
+## Deliverables
+
+- Unboxing sequence diagram or numbered ritual
+- Lid friction / tolerance target
+- Structural thickness and nest strategy
+- Graphic hierarchy for outer pack
+- Material allowlist and polymer bans
+- Out-of-scope statement when no physical goods exist
 
 ## Checklist
 
 ```
 Packaging chapter:
+- [ ] Scope confirmed (physical goods or explicit N/A)
 - [ ] Unboxing sequence documented (hero first)
-- [ ] Lid friction / tolerance target specified
+- [ ] Lid friction / tolerance target specified (≈ < 2 mm)
 - [ ] Rigid protective thickness called out
 - [ ] Typographic hierarchy: name + essential glyphs only
 - [ ] Polymer / film bans stated
@@ -72,6 +87,10 @@ Packaging chapter:
 - [ ] Banned vulgar / disposable pack formats
 ```
 
-## Out of Scope Signal
+## Forbidden
 
-If the brand is software-only with no physical goods, state that explicitly and omit ceremonial packaging—or limit this chapter to event kits / hardware accessories if those exist.
+- Loose lids and flimsy structure
+- Explainer-heavy outer packaging
+- Hero reveal cluttered with cables and legal sheets
+- Expandable foam / superfluous plastic films as default
+- Loud promotional graphics that undermine silence and confidence

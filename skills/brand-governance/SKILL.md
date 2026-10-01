@@ -1,92 +1,85 @@
 ---
 name: brand-governance
 description: >-
-  Operationalizes brand compliance via DAM, taxonomy, permissions, design
-  tokens, and live sync to design tools. Use when preventing brand equity
-  dilution, setting asset pipelines, or turning guidelines into enforceable
-  systems.
+  Turns brand guidelines into enforceable systems via DAM, immutable taxonomy,
+  permission profiles, auditable approvals, design tokens, and bidirectional
+  sync to design tools. Use when preventing brand equity dilution, building
+  asset pipelines, or operationalizing compliance.
 ---
 
 # Brand Governance
 
-A long PDF or intranet deck is a stillborn model. Mature teams fail aesthetic scalability—and dilute brand equity—when they treat systemic design as a one-off project without continuous alignment metrics. As headcount and agencies grow, fragmented rulebook versions proliferate.
+A long PDF or intranet deck is a stillborn model. Teams dilute brand equity when they treat systemic design as a one-off project without continuous alignment. As headcount and agencies grow, fragmented rulebook versions proliferate.
 
-**Imperative:** Evolve the brandbook into a living Digital Asset Management (DAM) and token-driven compliance ecosystem.
+## Purpose
 
-## DAM as Active Control
+Evolve the brandbook into a living Digital Asset Management (DAM) and token-driven compliance ecosystem so non-compliance is hard at creation time.
 
-DAM is the guardian of formal language coherence. It must connect theoretical guidelines to executable templates and searchable asset libraries—one infallible source, algorithmically discoverable, continuously synchronized.
+## Rules
+
+### DAM as active control
+
+DAM guards formal language coherence. It must connect guidelines to executable templates and searchable libraries—one source of truth, discoverable, continuously synchronized.
 
 ### Mandatory pillars
 
-1. **Immutable taxonomy & naming**
-   - Directory architecture follows a rigid matrix, for example:
-     - Global Identity Area → Geographic Quadrant → Campaign / Tactical Axis → Formative & Functional Attribution
+1. **Immutable taxonomy and naming**
+   - Directory matrix example:
+     `Identity Area → Geography → Campaign / Tactic → Format & Function`
    - Prevents duplicate re-renders and lost productivity
 
 2. **Granular permission profiles**
-   - Isolated marketing suppliers receive least-privilege access
-   - Prevent accidental access to master matrices that would miscalibrate color axes or damage logo hierarchy
+   - Vendors receive least-privilege access
+   - Block accidental edits to master matrices that would miscalibrate color or damage logo hierarchy
 
 3. **Auditable approvals**
    - Final art approval lives in integrated panels—not fractured email chains
    - Every variation is logged and reversible
 
-## Bidirectional Sync With Design Tools
+### Bidirectional sync with design tools
 
-Ultimate enforcement happens when guidelines propagate into primary design environments via **design tokens** and plugins.
+Guidelines must propagate into primary design environments via **design tokens** and shared libraries.
 
-### Live sync behavior
-
-When the creative council validates even a micro-change to a neutral for WCAG legibility:
+When leadership validates even a micro-change to a neutral for contrast:
 
 - Tokens update at the source
-- Remote artboards consuming shared libraries adopt the change
-- Typographic blocks and spacing matrices converge without manual chase-down
+- Remote canvases consuming shared libraries adopt the change
+- Type styles and spacing matrices converge without manual chase-down
 
-### Natural constraints
+Modular systems should **block** construction that violates standardized distances (margins, leading, padding, gaps). Documentation becomes a proactive constraint at creation time.
 
-Modular systems in collaborative tools should **block** construction of parallel graphics that violate standardized distances (margins, leading, padding, gaps). Documentation transforms from passive suggestion into **proactive constraint** at the moment of creation.
+### Token propagation map
 
-## Token Propagation Map
-
-| Brand rule domain | Token / system artifact |
-|-------------------|-------------------------|
-| Clear space & logo minima | `logo.*` sizing and padding tokens + component locks |
-| Color hierarchy & contrast | Semantic color tokens; banned raw hex in production |
+| Brand rule domain | System artifact |
+|-------------------|-----------------|
+| Clear space & logo minima | `logo.*` sizing/padding tokens + component locks |
+| Color hierarchy & contrast | Semantic color tokens; raw hex banned in production |
 | Type roles | Text styles: Display / Text / Mono only |
 | Spacing | Scalar spacing tokens only |
 | Elevation / motion | Elevation and duration tokens; unlisted animations rejected |
 
-## Operating Model
+### Success metric
 
-```
-Governance loop:
-- [ ] Single DAM source of truth designated
-- [ ] Taxonomy matrix published and enforced
-- [ ] Permission profiles for internal vs vendor
-- [ ] Approval workflow with audit trail
-- [ ] Design tokens published from brand core
-- [ ] Bidirectional library sync to design tools
-- [ ] Periodic compliance audit (assets + live UI)
-- [ ] Deprecation path for legacy non-compliant files
-```
+Measure success as **inability to ship non-compliant exports easily**—not as PDF page count.
 
-## Agent Instructions
+## Workflow
 
 1. Never ship guidelines without a governance plan (DAM + tokens + permissions).
 2. Design taxonomy before uploading assets.
-3. Prefer tool-level locks (shared libraries, style tokens) over training decks.
+3. Prefer tool-level locks (shared libraries, style tokens) over training decks alone.
 4. On any brand change, specify the sync path to every consuming surface.
-5. Measure success as **inability to ship non-compliant exports easily**, not as PDF page count.
+5. Schedule periodic compliance audits of assets and live UI.
+6. Maintain a deprecation path for legacy non-compliant files.
 
-## Anti-Patterns
+## Deliverables
 
-- Multiple competing “latest” brand PDFs
-- Vendors with edit rights to master logo files
-- Hex values pasted outside the token system
-- One-off local design styles disconnected from the central library
-- Email-only approval with no asset version pin
+- DAM designated as system of record
+- Taxonomy path pattern
+- Permission matrix (roles × actions)
+- Approval workflow with audit trail
+- Token list covering identity, color, type, space, motion
+- Design-tool sync architecture
+- Audit cadence + deprecation policy
 
 ## Checklist
 
@@ -100,3 +93,12 @@ Governance chapter:
 - [ ] Design-tool sync architecture
 - [ ] Audit cadence and deprecation policy
 ```
+
+## Forbidden
+
+- Multiple competing "latest" brand PDFs
+- Vendors with edit rights to master logo files
+- Hex values pasted outside the token system
+- One-off local styles disconnected from the central library
+- Email-only approval with no asset version pin
+- Guidelines shipped without an enforcement path

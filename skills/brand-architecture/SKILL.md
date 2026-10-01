@@ -1,71 +1,84 @@
 ---
 name: brand-architecture
 description: >-
-  Defines monolithic brand architecture, product naming, and lockup hierarchy.
-  Use when structuring sub-brands, product lines, naming conventions, or
-  preventing brand equity dilution from inconsistent identities.
+  Defines monolithic brand architecture, product naming grammar, and lockup
+  hierarchy. Use when structuring sub-brands, product lines, naming conventions,
+  lockups, or preventing brand equity dilution from inconsistent identities.
 ---
 
 # Brand Architecture
 
-Unplanned product launches produce a patchwork of logos and names. That dilutes brand equity. The brandbook must define the architecture under which every product, division, and service operates.
+Unplanned launches produce a patchwork of logos and names. That dilutes brand equity. Define the architecture under which every product, division, and service operates.
 
-## Architecture Models
+## Purpose
 
-| Model | Pattern | When it fits |
-|-------|---------|--------------|
-| **House of Brands** | Each product owns a fully isolated identity | Conglomerates with unrelated categories |
-| **Endorsed Brands** | Sub-brands have own identities + parent seal | Need local personality with parent trust |
-| **Monolithic (Branded House)** | All offerings use the parent name and visual system inseparably | Building authority, resonance, and one market front |
+Establish one coherent market front: how offerings are named, locked up, and forbidden from inventing parallel identities.
 
-**Default mandate:** Adopt a **strict monolithic architecture** unless a documented structural exception exists. Centralize marketing investment in one recognizable asset so prestige on one product elevates the rest (halo effect).
+## Rules
 
-## Failure Mode: Naming Proliferation
+### Architecture models
 
-Uncontrolled prefixes, unique product identities, and ad-hoc naming create:
+| Model | Pattern | Fits when |
+|-------|---------|-----------|
+| House of Brands | Each product owns a fully isolated identity | Unrelated categories under one parent company |
+| Endorsed Brands | Sub-brands own identity + parent seal | Local personality with parent trust |
+| Monolithic (Branded House) | All offerings use parent name and visual system inseparably | Authority, resonance, one market front |
+
+**Default mandate:** Strict **monolithic** architecture unless a documented structural exception exists. Centralize investment in one recognizable asset so prestige on one product elevates the rest (halo effect).
+
+### Failure mode: naming proliferation
+
+Uncontrolled prefixes, unique product identities, and ad-hoc naming cause:
 
 - Visual inconsistency across markets
-- Massive creative waste (rebuilding identities per sub-brand)
+- Creative waste from rebuilding identities per sub-brand
 - Confused customer experience
 - Diluted impact of the parent name
 
-## Naming Statutes
+### Naming statutes
 
-Write these into the brandbook as binding rules:
+1. No division may invent a separate visual identity.
+2. Products use **standardized lockups**, not custom marks.
+3. One typography system applies to all product references.
+4. Present a single unbroken front in every country and channel.
+5. Do not alter font weight in running text solely to differentiate product names unless the lockup system defines that treatment.
 
-1. **No division** may invent a separate visual identity.
-2. Products are framed through **standardized lockups**, not custom marks.
-3. **One typography system** applies to all product references.
-4. Present a **single, unbroken front** to the consumer in every country and channel.
-5. Do not alter **font weight** in running text solely to differentiate product names unless the lockup system explicitly allows a defined treatment.
-
-## Lockup Hierarchy
-
-Define four styles and when each is allowed:
+### Lockup hierarchy
 
 | Lockup | Role | Rules |
 |--------|------|-------|
-| **Primary** | Corporate master signature | Highest protection; default for institutional use |
-| **Secondary** | Approved alternate composition | Same mark integrity; constrained layouts only |
-| **Product** | Parent + product name pairing | Fixed order, spacing, and type role; no custom glyphs |
-| **No lockup** | Wordmark or product name alone | Only where space or context forbids a full lockup; still follows type and color rules |
+| Primary | Corporate master signature | Highest protection; default for institutional use |
+| Secondary | Approved alternate composition | Same mark integrity; constrained layouts only |
+| Product | Parent + product name pairing | Fixed order, spacing, and type role; no custom glyphs |
+| No lockup | Wordmark or product name alone | Only when space/context forbids a full lockup; still follows type and color rules |
 
-Document:
+Also document:
 
 - When the company name must appear
 - When it must not clutter a product surface
-- Exact spacing between mark and product name (tokenized)
-- Prohibition on inventing product logos
+- Exact mark-to-name spacing (tokenized)
+- Absolute ban on inventing product logos
 
-## Agent Instructions
+### Naming grammar (required fields)
 
-When designing architecture chapters or auditing naming:
+Specify pattern, separators, capitalization, pluralization, localization, and reserved words. Prefer consolidation over expansion of named entities.
+
+## Workflow
 
 1. Inventory all products, services, and divisions.
-2. Map each to a lockup style; flag orphans and custom marks for retirement.
-3. Draft a naming grammar (pattern, separators, capitalization, localization rules).
-4. Forbid weight/style hacks that invent hierarchy outside the lockup system.
-5. Prefer consolidation over expansion of named entities.
+2. Choose architecture model (default monolithic) and write the rationale.
+3. Map each offering to a lockup style; flag orphans and custom marks for retirement.
+4. Draft naming grammar.
+5. Forbid weight/style hacks outside the lockup system.
+6. Publish a migration plan for legacy inconsistencies.
+
+## Deliverables
+
+- Architecture decision with rationale
+- Lockup hierarchy with usage conditions
+- Naming grammar
+- Inventory → lockup map
+- Legacy retirement / migration plan
 
 ## Checklist
 
@@ -76,5 +89,13 @@ Architecture chapter:
 - [ ] Naming grammar documented
 - [ ] Divisions barred from separate identities
 - [ ] Single type system for product references
-- [ ] Migration plan for legacy inconsistent names/marks
+- [ ] Font-weight misuse in body text banned (unless lockup allows)
+- [ ] Migration plan for legacy names/marks
 ```
+
+## Forbidden
+
+- Parallel logos per team or country
+- Product mascots that replace the parent mark
+- Prefix spam that turns the parent name into filler
+- Undocumented exceptions to the architecture model

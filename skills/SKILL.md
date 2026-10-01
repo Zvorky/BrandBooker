@@ -1,83 +1,89 @@
 ---
 name: brandbook-orchestrator
 description: >-
-  Master branding skill set orchestrator. Routes brandbook authorship, audits,
-  and governance across philosophy, architecture, visual identity, color,
-  typography, human interface, packaging, and DAM. Use when building or
-  reviewing a brand system, brandbook, identity guidelines, or design OS.
+  Routes brandbook authorship, audits, and governance across philosophy,
+  architecture, visual identity, color, typography, human interface, packaging,
+  and DAM. Use when building or reviewing a brand system, brandbook, identity
+  guidelines, design OS, or brand consistency audit.
 ---
 
 # Brandbook Orchestrator
 
-A brandbook is not a style PDF. It is the **single source of truth** for aesthetics, strategy, tone, and execution—an operating system for how the organization looks, speaks, and ships.
+Entry point for this skill set. Use this skill to choose specialists, enforce the manifesto, and produce a complete brandbook—not a decorative style PDF.
 
-## When to Use This Skill
+## Purpose
 
-- Authoring or restructuring a full brandbook
-- Auditing brand consistency across products, marketing, or UI
-- Deciding which specialist skill to load
-- Establishing non-negotiable brand doctrine before visual work begins
+A brandbook is the **single source of truth** for aesthetics, strategy, tone, and execution. It governs every contact point: dense digital UI, marketing surfaces, and the mechanical friction of opening a physical package.
 
-## Global Manifesto
+## Manifesto (Apply Everywhere)
 
-Apply these directives across every specialist skill:
-
-1. **Confidence through suppression** — Subtract until only structural essentials remain. Elimination of the non-essential is sophistication.
-2. **Governance by enforcement** — Mathematical clear space, contrast thresholds, type roles, and spacing scales must exist as tokens and tool constraints—not prose alone.
-3. **Silent ergonomics** — Digital interfaces follow Clarity, Deference, and Depth. Motion and haptics explain change; they never create delay or sensory noise.
-4. **Tangible worth** — Physical touchpoints (packaging, merchandise) must validate premium perception through ritual, honest materials, and material restraint.
+1. **Confidence through suppression** — Subtract until only structural essentials remain. Removing the non-essential is sophistication.
+2. **Governance by enforcement** — Clear space, contrast, type roles, and spacing must exist as tokens and tool constraints—not prose alone.
+3. **Silent ergonomics** — Digital products follow Clarity, Deference, and Depth. Motion and haptics explain change; they never create delay or sensory noise.
+4. **Tangible worth** — Packaging and merchandise validate premium perception through ritual, honest materials, and restraint.
 
 ## Skill Router
 
-| Task | Load |
-|------|------|
-| Foundational principles, design dogma, “less but better” | [`design-philosophy/SKILL.md`](design-philosophy/SKILL.md) |
-| Product naming, branded house, lockup hierarchy | [`brand-architecture/SKILL.md`](brand-architecture/SKILL.md) |
-| Logo rules, clear space, minima, co-branding, merch bans | [`visual-identity/SKILL.md`](visual-identity/SKILL.md) |
-| Palette hierarchy, WCAG color, type families, modular spacing | [`color-typography/SKILL.md`](color-typography/SKILL.md) |
-| UI behavior, points vs pixels, safe areas, motion, haptics | [`human-interface/SKILL.md`](human-interface/SKILL.md) |
-| Unboxing ritual, structural friction, sustainable packs | [`packaging-experience/SKILL.md`](packaging-experience/SKILL.md) |
+| If the task involves… | Load |
+|-----------------------|------|
+| Doctrine, principles, voice posture, "less but better" | [`design-philosophy/SKILL.md`](design-philosophy/SKILL.md) |
+| Product naming, branded house, lockups, equity dilution | [`brand-architecture/SKILL.md`](brand-architecture/SKILL.md) |
+| Logo, clear space, minima, co-branding, merchandise bans | [`visual-identity/SKILL.md`](visual-identity/SKILL.md) |
+| Palette, WCAG contrast, type roles, modular spacing | [`color-typography/SKILL.md`](color-typography/SKILL.md) |
+| UI behavior, safe areas, elevation, motion, haptics | [`human-interface/SKILL.md`](human-interface/SKILL.md) |
+| Unboxing, lid friction, fiber packs, physical ritual | [`packaging-experience/SKILL.md`](packaging-experience/SKILL.md) |
 | DAM, taxonomy, permissions, tokens, design-tool sync | [`brand-governance/SKILL.md`](brand-governance/SKILL.md) |
 
-## Authoring Workflow
+Load multiple specialists when the task spans domains. Always keep this manifesto in force.
 
-Copy and track:
+## Full Brandbook Workflow
 
 ```
 Brandbook build:
-- [ ] 1. Philosophy chapter locked (design-philosophy)
-- [ ] 2. Architecture & naming statutes (brand-architecture)
-- [ ] 3. Logo / clear space / prohibitions (visual-identity)
-- [ ] 4. Color + type + spacing tokens (color-typography)
-- [ ] 5. HIG chapter if digital products exist (human-interface)
-- [ ] 6. Packaging chapter if physical goods exist (packaging-experience)
-- [ ] 7. DAM + token sync plan (brand-governance)
-- [ ] 8. Cross-check: every rule is measurable or visually demonstrable
+- [ ] 1. Philosophy + voice locked          → design-philosophy
+- [ ] 2. Architecture & naming statutes    → brand-architecture
+- [ ] 3. Logo / clear space / prohibitions → visual-identity
+- [ ] 4. Color + type + spacing tokens     → color-typography
+- [ ] 5. HIG (if digital products)         → human-interface
+- [ ] 6. Packaging (if physical goods)     → packaging-experience
+- [ ] 7. DAM + token sync plan             → brand-governance
+- [ ] 8. Every rule is measurable or visually demonstrable
 ```
 
-### Step rules
+### Sequencing rules
 
-1. **Philosophy before pixels** — Never define colors, grids, or type before the design doctrine is explicit.
-2. **One front to the market** — Default to a monolithic (branded house) architecture unless there is a structural reason otherwise; document the reason.
-3. **Prohibitions are first-class** — Every brandbook needs a visual catalog of unacceptable misuse.
-4. **Ship as a living system** — Pair documentation with DAM, permission profiles, and bidirectional design tokens so deviation is hard at creation time.
+1. **Philosophy before pixels** — Never define color, grid, or type before doctrine is explicit.
+2. **One market front** — Default to monolithic (branded house) architecture; document any exception.
+3. **Prohibitions are first-class** — Ship a visual catalog of unacceptable misuse.
+4. **Ship as a living system** — Pair the document with DAM, permissions, and bidirectional tokens so deviation is hard at creation time.
+
+## Scope Gates
+
+| Scope | Required chapters |
+|-------|-------------------|
+| Always | Philosophy, Architecture, Visual Identity, Color & Typography, Governance |
+| Digital products | + Human Interface |
+| Physical goods / kits | + Packaging Experience |
+
+If a gate does not apply, state that explicitly in the brandbook rather than omitting silently.
 
 ## Output Quality Bar
 
-A complete brandbook produced with this skill set must:
+A brandbook produced with this skill set must:
 
-- Open with an enforceable philosophical chapter
-- Specify architecture and naming with lockup rules
+- Open with enforceable philosophy and voice posture
+- Specify architecture, naming grammar, and lockup hierarchy
 - Provide mathematical clear-space and minimum-size tables
-- Define chromatic hierarchy (including semantic feedback colors) and type roles
+- Define chromatic hierarchy (including semantic feedback) and type roles
 - Include HIG pillars when software is in scope
-- Include packaging ritual and material bans when hardware/physical goods are in scope
+- Include packaging ritual and material bans when physical goods are in scope
 - Describe DAM taxonomy, permissions, and token propagation
 
-## Anti-Patterns
+## Forbidden
 
-- Treating the brandbook as a one-off PDF that goes stale
-- Letting divisions invent separate visual identities
-- Allowing decorative animation, false italics, or random spacing values
+- One-off PDFs with no governance path
+- Divisions inventing separate visual identities
+- Decorative animation, false italics, or random spacing
 - Co-branding that fuses marks into a hybrid signature
 - Merchandise on vulgar, disposable, or prestige-misaligned surfaces
+- Rules that cannot be measured, tokenized, or shown as correct/incorrect pairs
