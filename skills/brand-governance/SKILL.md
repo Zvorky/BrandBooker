@@ -1,104 +1,45 @@
 ---
 name: brand-governance
-description: >-
-  Turns brand guidelines into enforceable systems via DAM, immutable taxonomy,
-  permission profiles, auditable approvals, design tokens, and bidirectional
-  sync to design tools. Use when preventing brand equity dilution, building
-  asset pipelines, or operationalizing compliance.
+description: Governs Digital Asset Management (DAM) end-user folder taxonomy, vector/raster delivery specs, naming conventions, permissions, and bidirectional design-token synchronization. Use when structuring brand repositories, handover packages, or token pipelines.
 ---
 
-# Brand Governance
+# Brand Governance & DAM Architecture
 
-A long PDF or intranet deck is a stillborn model. Teams dilute brand equity when they treat systemic design as a one-off project without continuous alignment. As headcount and agencies grow, fragmented rulebook versions proliferate.
+A brand system fails when teams cannot locate the right asset in seconds or when code drifts from guidelines. Governance enforces consistency at the file-system and token levels.
 
-## Purpose
+## 1. End-User Decision-Tree DAM Taxonomy
 
-Evolve the brandbook into a living Digital Asset Management (DAM) and token-driven compliance ecosystem so non-compliance is hard at creation time.
+Organize brand delivery repositories around the **end user's selection decision**—never by internal designer workflow:
 
-## Rules
+1. **Level 1 — Logo Variant:** `01-Full-Lockup/`, `02-Stacked-Lockup/`, `03-Logomark/`, `04-Favicon/`
+2. **Level 2 — Color Space / Medium:** `01-Digital-RGB/` and `02-Print/` (subdivided into `01-CMYK/` and `02-Pantone-PMS/`)
+3. **Level 3 — Chromatic Variant:** `01-Primary-Color/`, `02-Monochrome-Black/`, `03-Monochrome-White/`, `04-Inverted/`
+4. **Level 4 — Format Type:** `Vector/` and `Raster/`
+5. **Source Vault (`00-Source-Files/`):** Restricted folder holding master editable source files (`.ai`, `.glyphs`, `.fig`) separated from distribution folders.
 
-### DAM as active control
+### Mandatory Delivery Formats & Scales
+- **Vector Formats:**
+  - `SVG` (RGB, clean viewBox, outlined typography, zero stray handles — mandatory for web/UI)
+  - `PDF` (universal editable vector master for modern print/editorial workflows)
+  - `EPS` (legacy print-shop compatibility across RGB, CMYK, and Pantone)
+- **Raster Formats (Transparent `PNG` + `WebP` / `JPG`):**
+  - `1920px` width — Primary / hero / presentation scale
+  - `960px` width — Medium / standard web & document scale
+  - `192px` width — Small / email signature & compact avatar scale
+  - `16×16px` & `32×32px` — Solid micro-scale favicons
 
-DAM guards formal language coherence. It must connect guidelines to executable templates and searchable libraries—one source of truth, discoverable, continuously synchronized.
+## 2. Naming Grammar & Single Source of Truth
 
-### Mandatory pillars
+- **File Naming Convention:** `{brand-slug}_{variant}_{colorspace}_{chromia}_{scale}.{ext}`
+  - Example: `tdx-engenharia_logomark_rgb_mono-white_960w.png`
+- **Repository Partitioning:**
+  - Core design system documentation (`brandbook.md`, `DESIGN.md`) lives alongside machine-readable tokens (`tokens.css`, `tokens.json`).
+  - Downstream web projects consume brand tokens via inheritance (`Project > Brand > Fallback Baseline`) and never fork or mutate core brand assets locally.
 
-1. **Immutable taxonomy and naming**
-   - Directory matrix example:
-     `Identity Area → Geography → Campaign / Tactic → Format & Function`
-   - Prevents duplicate re-renders and lost productivity
+## 3. Permissions, Versioning & IP Handover
 
-2. **Granular permission profiles**
-   - Vendors receive least-privilege access
-   - Block accidental edits to master matrices that would miscalibrate color or damage logo hierarchy
-
-3. **Auditable approvals**
-   - Final art approval lives in integrated panels—not fractured email chains
-   - Every variation is logged and reversible
-
-### Bidirectional sync with design tools
-
-Guidelines must propagate into primary design environments via **design tokens** and shared libraries.
-
-When leadership validates even a micro-change to a neutral for contrast:
-
-- Tokens update at the source
-- Remote canvases consuming shared libraries adopt the change
-- Type styles and spacing matrices converge without manual chase-down
-
-Modular systems should **block** construction that violates standardized distances (margins, leading, padding, gaps). Documentation becomes a proactive constraint at creation time.
-
-### Token propagation map
-
-| Brand rule domain | System artifact |
-|-------------------|-----------------|
-| Clear space & logo minima | `logo.*` sizing/padding tokens + component locks |
-| Color hierarchy & contrast | Semantic color tokens; raw hex banned in production |
-| Type roles | Text styles: Display / Text / Mono only |
-| Spacing | Scalar spacing tokens only |
-| Elevation / motion | Elevation and duration tokens; unlisted animations rejected |
-
-### Success metric
-
-Measure success as **inability to ship non-compliant exports easily**—not as PDF page count.
-
-## Workflow
-
-1. Never ship guidelines without a governance plan (DAM + tokens + permissions).
-2. Design taxonomy before uploading assets.
-3. Prefer tool-level locks (shared libraries, style tokens) over training decks alone.
-4. On any brand change, specify the sync path to every consuming surface.
-5. Schedule periodic compliance audits of assets and live UI.
-6. Maintain a deprecation path for legacy non-compliant files.
-
-## Deliverables
-
-- DAM designated as system of record
-- Taxonomy path pattern
-- Permission matrix (roles × actions)
-- Approval workflow with audit trail
-- Token list covering identity, color, type, space, motion
-- Design-tool sync architecture
-- Audit cadence + deprecation policy
-
-## Checklist
-
-```
-Governance chapter:
-- [ ] DAM role defined as system of record
-- [ ] Taxonomy path pattern documented
-- [ ] Permission matrix (roles × actions)
-- [ ] Auditable approval flow
-- [ ] Token list covering identity, color, type, space, motion
-- [ ] Design-tool sync architecture
-- [ ] Audit cadence and deprecation policy
-```
-
-## Forbidden
-
-- Multiple competing "latest" brand PDFs
-- Vendors with edit rights to master logo files
-- Hex values pasted outside the token system
-- One-off local styles disconnected from the central library
-- Email-only approval with no asset version pin
-- Guidelines shipped without an enforcement path
+- **Role-Based Governance:**
+  - *Brand Architects / Maintainers:* Write access to `00-Source-Files/`, `brandbook.md`, `DESIGN.md`, and `tokens.*`.
+  - *Developers / Marketing / External Vendors:* Read/consume access to distribution folders and token packages; changes require Pull Request + `brandbook-review` audit.
+- **Semantic Versioning:** Increment `MAJOR` for mark/architecture shifts, `MINOR` for new tokens/components, `PATCH` for bug/contrast fixes, logging every decision in `history/`.
+- **Commercial Handover:** Complete delivery packages include searchable `brandbook.pdf` (or interactive web portal), the audited DAM directory, and formal Intellectual Property (IP) transfer documentation.

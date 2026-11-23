@@ -1,116 +1,51 @@
 ---
 name: color-typography
-description: >-
-  Engineers restrained color hierarchies, WCAG-safe semantic color, display/
-  text/mono type roles, and modular spacing tokens. Use when defining palettes,
-  contrast rules, typography systems, leading, or spacing scales for a brand.
+description: Governs perceptual color systems (OKLCH/LCh/CIELAB), print gamut management (CMYK/Pantone Coated & Uncoated), WCAG 2.1 + APCA contrast auditing, color-blindness safety, and functional typography pairing. Use when defining brand palettes, color tokens, tonal ramps, or typographic hierarchies.
 ---
 
-# Color & Typography
+# Color & Typography Systems
 
-Indiscriminate color dilutes institutional impact. Sophisticated systems run under severe chromatic restriction. Typography is the most prominent element users read—and the silent foundation of brand voice.
+Color and type must translate brand doctrine into deterministic tokens that hold perceptual uniformity on high-DPI screens and predictable pigment fidelity in print.
 
-## Purpose
+## 1. Perceptual Color Architecture (Digital & Print)
 
-Define a hierarchical palette, accessibility-safe semantic color, strict type roles, and a modular spacing scale—all as tokens.
+### Digital Color Spaces (`OKLCH` First)
+- **Author in `OKLCH` / `LCh` / `CIELAB`:** Build tonal ramps (`50`–`950`) in perceptually uniform color spaces (`OKLCH`: Lightness `L`, Chroma `C`, Hue `H`) before exporting to `HEX` and `RGB`. Never generate ramps via naive HSL lightness shifts, which cause perceived brightness spikes in yellows/cyans and muddiness in blues.
+- **Surface Hierarchy:** Define explicit semantic tokens (`--bg-canvas`, `--surface-primary`, `--surface-elevated`, `--border-subtle`, `--text-primary`, `--text-secondary`, `--accent-primary`) rather than raw hex lists.
+- **Ban Pure Void Black (`#000000`) for Surfaces:** Use calibrated deep neutral tones (`L: 10%–16%`) to prevent halation and harsh contrast fatigue unless hardware OLED constraints explicitly dictate true black.
 
-## Rules
+### Print & Gamut Management (`CMYK` & `Pantone PMS`)
+- Specify separate calibrated values for **Coated (`C`)** and **Uncoated (`U`)** paper stocks—ink absorption alters saturation and value significantly on uncoated stock.
+- Flag vibrant digital colors that fall **out of CMYK gamut** (which print dull, dark, or greyish) and prescribe either spot **Pantone (PMS)** inks, Expanded Gamut (**OGV**), or manually recalibrated CMYK builds.
 
-### Color hierarchy
+## 2. Dual Accessibility Auditing (`WCAG 2.1` + `APCA`)
 
-1. **Neutrals first** — refined spectrum from polar white to deep charcoal; focus stays on product and content.
-2. **Spatial proportions** — stricter than classic 60-30-10:
-   - **80%** neutral / negative space
-   - **15%** secondary structural elements
-   - **≤5%** accent to guide attention
-3. **One primary action color** — CTAs and isolated highlight moments only; **forbidden** as body-text color.
-4. **One secondary** (optional) — structural support only.
-5. **Semantic feedback** — success, danger, warning, info; target **WCAG AAA** contrast where feasible; never rely on hue alone.
+Every foreground/background token pair must pass both legacy ratio checks and modern perceptual contrast:
 
-### Accent restraint
+| Role | WCAG 2.1 Minimum (AA / AAA) | APCA (`Lc`) Target |
+|---|---|---|
+| **Body Copy (`< 18pt`)** | `4.5:1` (AA) / `7.0:1` (AAA) | `Lc >= 60` (preferred `Lc 75+`) |
+| **Large Headings (`>= 18pt` or `14pt bold`)** | `3.0:1` (AA) / `4.5:1` (AAA) | `Lc >= 45` |
+| **UI Components, Borders & Focus Rings** | `3.0:1` (AA) | `Lc >= 30` (non-text structural) |
 
-If a vibrant accent exists, use it with extreme sparseness—for support, assurance, and delight at critical moments—not as ambient fill.
+### Color-Blindness Safety (~5% Global Population)
+- Never rely on hue alone to communicate status or hierarchy.
+- Avoid overlapping high-risk pairs (**red/green**, **red/black**, **blue/yellow**) without a strong luminance (`L`) delta (`ΔL >= 35` in OKLCH). Prefer safer high-contrast pairings such as **blue + orange/amber** for critical differentiation.
 
-### Accessibility
+## 3. Functional Typography Pairing & Hierarchy
 
-If a pair fails contrast requirements, **do not force approval**. Adjust the color until legibility is met. Prefer modular semantic variables over ad-hoc hex values.
+Limit the brand system to **two font families** (one expressive display/wordmark family + one highly legible utility/body family), calibrating optical sizes so stroke weights harmonize across transitions.
 
-### Color tokens
+### Functional Pairing Matrix
 
-```
-color.primary            → CTAs / isolated emphasis only
-color.secondary          → structural support
-color.accent             → rare highlight moments
-color.neutral.0-6        → refined grayscale spectrum
-color.feedback.success
-color.feedback.danger
-color.feedback.warning
-color.feedback.info
-```
+| Primary Wordmark / Display Style | Recommended Secondary Utility Font | Strategic & Visual Rationale |
+|---|---|---|
+| **High-Contrast Serif** (e.g., Bodoni, Didot) | Neutral Neo-Grotesque Sans (uppercase with open tracking for labels) | Serif carries emotional authority; neutral sans guarantees technical utility and clean UI legibility. |
+| **Heavy Geometric Sans-Serif** | Light weight of the **same** geometric family (with generous kerning) | Preserves strict formal unity while establishing clear weight hierarchy. |
+| **Calligraphic / Hand-Drawn Script** | Structured Monospace or clean humanist sans (stroke-weight matched) | Balances organic human expression with engineering rigor and visual stability. |
+| **Robust Slab Serif** | Light, open modern sans-serif | Prevents visual congestion by contrasting heavy slab terminals with airy letterforms. |
 
-Expand neutrals and feedback ramps as needed; keep **jobs** semantic. Resist decorative free colors outside this map.
-
-### Type roles
-
-| Role | Context | Structural rules |
-|------|---------|------------------|
-| Display | Headlines, advertising, key conversion moments | Fits a rigid grid. No mechanical condensation. No false italics. |
-| Text / Body | Technical copy, product descriptions, UI reading | Accessibility-aligned; support system text scaling. Leading ≥ **150%** of font size. |
-| Mono (Technical) | Specs, numeric IDs, metadata | Black, gray, or pure white only. Signals precision in dense data. |
-
-### Family discipline
-
-Resist a third type family unless a structural use case cannot be met by the primaries. Random families accumulate into visual noise.
-
-Prefer optical sizes that scale from tiny hardware readouts to large panels. Separate Display vs Text cuts when available; never use Display for long reading.
-
-### Modular spacing
-
-Spacing is a fixed coordinate in brand code—not a style suggestion.
-
-| Rule | Directive |
-|------|-----------|
-| Margins, padding, gaps | Scalar increment system only |
-| Random values | Prohibited |
-| Example base scale | 4 / 8 / 16 / 24 / 32 / 48 / 64 (px or rem equivalent) |
-
-## Workflow
-
-1. Build palette from neutrals outward; introduce accent last and sparsely.
-2. Assign every color a semantic job; ban free decorative use of primary.
-3. Lock type to Display / Text / Mono; ban false italics and forced distortion.
-4. Set body leading floor at 150%; require system text-scaling support.
-5. Tokenize spacing on one base grid; reject one-off values in review.
-
-## Deliverables
-
-- Neutral spectrum + primary / secondary / accent roles
-- Feedback colors with contrast targets
-- Token map (color + type styles + spacing)
-- Type role table with Do/Don't
-- Spacing scale definition
-
-## Checklist
-
-```
-Color & type chapter:
-- [ ] Neutral foundation defined
-- [ ] 80 / 15 / 5 (or documented equivalent) proportion rule
-- [ ] Primary CTA color restricted; banned in body text
-- [ ] Semantic feedback colors + contrast targets
-- [ ] Display / Text / Mono roles specified
-- [ ] False italics and mechanical distortion banned
-- [ ] Leading ≥ 150% for body
-- [ ] System text-scaling support stated
-- [ ] Modular spacing scale tokenized
-- [ ] Third-family policy (resist by default)
-```
-
-## Forbidden
-
-- Rainbow palettes without semantic jobs
-- Primary color as paragraph text
-- Forced contrast exceptions
-- False italics / stretched type
-- One-off spacing values outside the scale
-- A third family without a proven structural need
+### Typographic Governance Rules
+- **System Fallback Metrics:** Every web font must declare a matched system fallback stack with calibrated `@font-face` metric overrides (`size-adjust`, `ascent-override`, `descent-override`) to eliminate Cumulative Layout Shift (CLS).
+- **Tabular Figures (`tabular-nums`):** Enforce `font-variant-numeric: tabular-nums` on all pricing tables, calculators, telemetry, and financial readouts.
+- **Line Measure & Rhythm:** Constrain body prose width to `55–72` characters (`max-width: 65ch`) and forbid fake/synthesized italics or bolds (`font-synthesis: none`).
