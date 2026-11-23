@@ -1,126 +1,72 @@
 ---
 name: human-interface
 description: >-
-  Defines digital human interface rules: clarity, deference, depth, point-based
-  layout, safe areas, elevation, translucency, motion, haptics, and accessible
-  reflow. Use when writing HIG chapters, auditing UI behavior, or specifying
-  interaction and motion systems.
+  Governs digital product ergonomics, concentric border-radius mathematics, G3
+  squircles, 24x24 dp icon grids and keylines, elevation, translucency,
+  safe areas, motion, haptics, and accessible reflow. Use when specifying UI
+  rules, web design tokens, component geometry, or icon systems in a brandbook.
 ---
 
-# Human Interface
+# Human Interface Guidelines (HIG)
 
-Logo and color rules are not enough for technology products. Digital interaction must feel fluid, instinctive, and native—without confusion or cognitive fatigue.
+Digital interfaces act as a quiet, deterministic stage for user intent, governed by **Clarity**, **Deference**, and **Depth**.
 
 ## Purpose
 
-Specify behavior for interfaces: hierarchy, layout units, safe areas, depth materials, motion, haptics, and accessible reflow.
+Specify geometric nesting, iconography grids, elevation/translucency limits, motion, haptics, and reflow rules for digital interfaces.
 
 ## Rules
 
-### Pillar 1 — Clarity
+### 1. Concentric Border-Radius Mathematics
+Nested rounded containers (cards containing buttons, images, badges, or inputs) look visibly distorted at `45 deg` when inner and outer elements share the same `border-radius`: the diagonal gap widens while the inner corner appears pinched.
 
-Everything on screen has precise, immediate, unambiguous meaning.
+- **Mandatory Concentric Formula:** To keep inner and outer arcs strictly parallel with a shared geometric center:
 
-- Typography legibility outranks artistic flourish
-- Icons stay clean and geometrically focused—no second readings
-- Remove any ornament that does not help complete a task
-- Design in **points**, not absolute device pixels, so UI scales across `@1x` / `@2x` / `@3x` densities
+$$R_{\text{inner}} = \max\left(0,\; R_{\text{outer}} - (\text{padding} + \text{border\_width})\right)$$
 
-### Pillar 2 — Deference
+- **Example:** A card with `R_outer = 24px`, `border = 1px`, and `padding = 11px` requires `R_inner = 12px` (`24 - 11 - 1 = 12px`).
+- **CSS Token Implementation:** Expose `--radius-outer`, `--shell-padding`, and `--shell-border`, computing `--radius-inner: max(0px, calc(var(--radius-outer) - var(--shell-padding) - var(--shell-border)))`.
+- **Dimensional Cap:** Keep every radius `<= 50%` of the box's shortest side (except full pill shapes, which use `9999px`).
+- **Independence Threshold:** When `padding > 24px`, inner elements behave as independent surfaces and are exempt from strict concentric coupling.
+- **Sharp Inner Fallback & G3 Squircles:** When `border_width` approaches `R_outer`, a sharp `0px` inner corner reads cleaner than a tiny micro-arc. On flagship hardware/app surfaces, prefer continuous curvature transitions (**G3 squircles** / clothoid approximations) over abrupt circular arcs.
 
-UI is not the protagonist. It is an invisible scaffold for content (imagery, data, text).
+### 2. Iconography Grid & Perceptual Mass Equalization
+Brand icon sets must operate as a unified visual alphabet with identical stroke weight, corner logic, and perceived mass:
 
-- Navigation bars, tabs, and modals fuse with structure
-- Prefer subtle blur or minimal translucency over opaque overlays that compete for attention
-- Respect **safe areas**: no primary interactive control may collide with or hide behind notches, home indicators, or rounded corners
+- **Standard Grid:** Construct system/UI icons on a **`24x24 dp` (or `px`) grid** with an interior **`20x20 dp` live area**, preserving a **`2 dp` perimeter trim** on all four sides to prevent edge clipping.
+- **Perceptual Mass Keylines:** Never fill the entire `20x20` square with square icons because a solid square appears significantly heavier than a circle or vertical rectangle of the same bounding box. Use canonical keylines (circle, square, vertical rectangle, horizontal rectangle) to equalize optical weight across the set.
+- **Pixel-Grid Alignment & Concentric Details:** Snap straight strokes to whole-pixel boundaries for crisp rendering and apply the concentric radius formula to nested icon strokes.
+- **Optical Centering:** Offset directional icons (play triangles, right arrows, chevrons) toward their visual mass center inside circular or square button containers.
 
-### Pillar 3 — Depth
-
-The brain needs spatial signals for hierarchy. Depth is controlled perspective and digital material—not skeuomorphic nostalgia.
-
-| Property | Mandate |
-|----------|---------|
-| Shadows & elevation | Fixed Z-axis shadow recipes (blur, opacity) that mimic real light; signal what is tappable |
-| Translucency | Frosted layers preserve context under overlays; **cap blur thresholds**—excess harms usability |
-
-### Motion
-
-Motion is not cosmetic charm.
-
-**Allowed when it:**
-
-- Explains a state change
-- Confirms a successful transaction
-- Responds to a gesture with physically plausible momentum
-
-**Prohibited when it:**
-
-- Delays task completion
-- Exists only as decoration
-- Competes with content for attention
-
-Every action gets feedback that is perceptible, instantaneous, and meaningful.
-
-### Haptics
-
-Vibration may complement sound and graphics (e.g. a light thump when a switch seats).
-
-**Restrict haptics to culminating interaction moments.** Overuse causes sensory exhaustion. Never spam vibration for routine navigation.
-
-### Inclusive modular layout
-
-Use resilient spatial logic (auto layout / flexible grids):
-
-- When users enlarge system text, the interface expands and reflows organically
-- Visual harmony and utility remain intact after reflow
-- Never hard-clip critical controls at larger text sizes
+### 3. Core Digital Ergonomics, Motion, Haptics & Reflow
+- **Clarity:** Text is legible at every viewing distance (`>= 16px` base body on mobile/desktop), icons are unambiguous, and layout hierarchy relies on spacing and weight rather than decorative borders.
+- **Deference:** Content occupies the full viewport (`min-h-[100dvh]`, never brittle `100vh`); chrome, headers, and translucent surfaces stay subtle and never compete with primary tasks.
+- **Depth, Elevation & Translucency:** Use restrained Z-axis elevation and capped blur/translucency so background context stays readable without heavy drop shadows or excessive blur.
+- **Purposeful Motion & Reduced-Motion Respect:** Transitions explain spatial state changes (`150ms-280ms`, `cubic-bezier(0.2, 0, 0, 1)`) and never block input. Always honor `@media (prefers-reduced-motion: reduce)`.
+- **Haptics & Reflow:** Restrict haptics to culminating interaction moments (never routine navigation), enforce `>= 44x44 px` touch targets with `>= 8px` separation, respect `env(safe-area-inset-*)`, and ensure flexible layouts reflow cleanly when system text scales up.
 
 ## Workflow
 
-1. Structure the chapter as Clarity → Deference → Depth before listing components.
-2. Mandate point-based layout and safe-area insets.
-3. Publish elevation tokens and translucency caps.
-4. Gate every animation on a state-explanation test; delete the rest.
-5. Limit haptic recipes to a short approved climax list.
-6. Require large-text reflow proofs in UI review.
+1. Define Clarity, Deference, and Depth rules along with concentric radius and `24x24 dp` icon grid specs.
+2. Specify elevation/translucency caps, motion curves, haptic limits, safe areas, and large-text reflow behavior.
 
 ## Deliverables
 
-- Pillar definitions with operational bullets
-- Point vs pixel mandate
-- Safe-area rules
-- Elevation and translucency tokens
-- Motion justification policy
-- Approved haptic event list
-- Reflow / text-scaling acceptance criteria
+- Concentric radius and `24x24 dp` icon grid specification
+- Ergonomics, elevation/translucency, motion, haptics, and reflow rules
 
 ## Checklist
 
+```text
+Human interface chapter:
+- [ ] Concentric radius formula and CSS token / exception rules defined
+- [ ] 24x24 dp icon grid, 20x20 dp live area, and perceptual mass keylines specified
+- [ ] Clarity, Deference, Depth, translucency caps, and safe areas addressed
+- [ ] Purposeful motion, prefers-reduced-motion, haptics limits, and text reflow verified
 ```
-HIG chapter:
-- [ ] Clarity / Deference / Depth defined operationally
-- [ ] Points vs pixels mandate
-- [ ] Safe-area collision ban
-- [ ] Elevation and shadow tokens
-- [ ] Translucency blur caps
-- [ ] Motion justification rule + delay ban
-- [ ] Haptic restriction to climax moments
-- [ ] System text-scaling / auto-layout resilience
-```
-
-## Component review questions
-
-1. Does every element have one clear job?
-2. Does chrome yield to content?
-3. Is layer order readable without decoration?
-4. Does motion teach something?
-5. Does it survive larger text and irregular device insets?
 
 ## Forbidden
 
-- Ornament that does not aid the task
-- Opaque chrome fighting content
-- Controls under notches or home indicators
-- Decorative or delaying animation
-- Routine haptic spam
-- Fixed layouts that break when text scales
+- Uncompensated nested corner radii or brittle `100vh` full-height locks
+- Decorative/delaying animations or routine navigation haptic spam
+- Interactive targets clipping safe areas or breaking under system text scaling

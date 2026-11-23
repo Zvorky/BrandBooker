@@ -1,60 +1,26 @@
 # BrandBooker
 
-Skill set for LLM agents that author, audit, and govern brand systems.
+An open-source agent skill set for authoring, auditing, and governing world-class brand systems—combining strategic brand doctrine with deterministic vector/Bézier engineering, perceptual color science, optical geometry, and automated acceptance gates.
 
-A brandbook is not a style guide. It is an **operating system** for culture, design, and communication—the single source of truth for how an organization looks, speaks, and ships.
+## Architecture
 
-## What This Repo Contains
+BrandBooker operates as a modular router (`skills/SKILL.md`) coordinating specialized domain experts:
 
-Nine skills that encode a complete excellence-grade brand system—including critical review of existing brandbooks:
+| Skill | Domain | Core Standards Enforced |
+|---|---|---|
+| `design-philosophy` | Doctrine & Discovery | Strategic brief, competitive audit, stylescapes, voice posture |
+| `brand-architecture` | Portfolio & Naming | Branded house vs. endorsed hierarchy, naming grammar, lockups |
+| `visual-identity` | Vector & Optical Craft | 7 Bézier path rules (zero-handle ban, G2 continuity), 4 optical compensations, wordmark surgery, supergraphics, responsive minima (`120px` / `24px` / `16px`) |
+| `color-typography` | Perceptual Color & Type | `OKLCH`/`LCh` ramps, `CMYK`/`Pantone` Coated & Uncoated, `WCAG 2.1` + `APCA` contrast, color-blindness safety, functional font pairing |
+| `human-interface` | Digital Ergonomics | Concentric border-radius math (`R_inner = max(0, R_outer - (padding + border))`), G3 squircles, `24×24 dp` icon grid (`20×20` live area) |
+| `packaging-experience` | Physical Ritual | Unboxing mechanics, honest materials, sustainable fiber specs |
+| `brand-governance` | DAM & Token Sync | Decision-tree folder taxonomy (`Variant > Color Space > Chromia > Format`), `1920/960/192px` rasters, `SVG/PDF/EPS` vectors, bidirectional CSS/JSON tokens |
+| `brandbook-review` | Critical QA Gate | 6-Test Acceptance Protocol (16px/80px stress test, contrast/gamut, fallback fonts, claim verification, token usability, independent handover) |
 
-| Order | Skill | Path | Owns |
-|------:|-------|------|------|
-| 0 | Orchestrator | [`skills/SKILL.md`](skills/SKILL.md) | Routing, manifesto, full-build workflow |
-| 1 | Design Philosophy | [`skills/design-philosophy/`](skills/design-philosophy/) | Doctrine, good-design principles, voice posture |
-| 2 | Brand Architecture | [`skills/brand-architecture/`](skills/brand-architecture/) | Monolithic model, naming, lockups |
-| 3 | Visual Identity | [`skills/visual-identity/`](skills/visual-identity/) | Logo, clear space, minima, co-branding, merch |
-| 4 | Color & Typography | [`skills/color-typography/`](skills/color-typography/) | Palette hierarchy, contrast, type roles, spacing |
-| 5 | Human Interface | [`skills/human-interface/`](skills/human-interface/) | Clarity, deference, depth, motion, haptics |
-| 6 | Packaging Experience | [`skills/packaging-experience/`](skills/packaging-experience/) | Unboxing ritual, friction, sustainable materials |
-| 7 | Brand Governance | [`skills/brand-governance/`](skills/brand-governance/) | DAM, taxonomy, permissions, tokens, sync |
-| 8 | Brandbook Review | [`skills/brandbook-review/`](skills/brandbook-review/) | Critical audit of existing brandbooks; gaps and fixes |
+## Installation
 
-## How to Use
+Clone or link `skills/` into your agent runtime's skill directory (e.g., `.agents/skills/brandbooker/`), or install via the [WebDesign-ToolKit](https://github.com/Zvorky/WebDesign-ToolKit) setup script.
 
-1. **Start at the orchestrator** — [`skills/SKILL.md`](skills/SKILL.md) selects specialist skills and enforces the global manifesto.
-2. **Auditing an existing brandbook?** — Load [`skills/brandbook-review/`](skills/brandbook-review/) first; pull specialists as rubrics for deep findings.
-3. **Load only what the task needs** — progressive disclosure; do not dump every skill into context.
-4. **Treat rules as constraints** — measurable, tokenizable, enforceable. Never as optional taste.
-5. **Subtract first** — every element must earn its place.
+## License
 
-## Non-Negotiable Posture
-
-- **Suppression** — remove ornament; keep only what serves function and clarity.
-- **Enforcement** — clear space, contrast, type, and spacing live as tokens and tool locks, not PDF prose alone.
-- **Silent ergonomics** — UI defers to content; motion and haptics explain state, never delay it.
-- **Tangible worth** — packaging and merchandise validate premium perception through ritual and honest materials.
-
-## Layout
-
-```
-BrandBooker/
-├── README.md
-└── skills/
-    ├── SKILL.md                      # Orchestrator
-    ├── design-philosophy/SKILL.md
-    ├── brand-architecture/SKILL.md
-    ├── visual-identity/SKILL.md
-    ├── color-typography/SKILL.md
-    ├── human-interface/SKILL.md
-    ├── packaging-experience/SKILL.md
-    ├── brand-governance/SKILL.md
-    └── brandbook-review/SKILL.md    # Critical audit
-```
-
-## Conventions
-
-- English only.
-- Every `SKILL.md` has YAML frontmatter (`name`, `description`).
-- Skills embed concepts as enforceable rules—no research citations, no third-party brand identities.
-- Specialist skills share a fixed section schema: Purpose → Rules → Workflow → Deliverables → Checklist → Forbidden.
+MIT — see [LICENSE](LICENSE).
